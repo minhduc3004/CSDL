@@ -20,39 +20,33 @@ def predict():
         file = csv.reader(csv_file)
         for row in file:
             train.append(row)
-        # print(train[400][3])
-        print(np.shape(train)[0])
 
-    tmp = 1
-    distance = 1000000000
+    tmp = 0
+    distance = 1000
     cur_label = 0
     arr_distance = []
-    # print(np.shape(train)[0]/np.shape(test)[0])
-    # print(train[0])
-    train[0].remove[4]
-    print(train[0])
-    # print(cosin.cosin_distance(test[100],train[100].pop[4]))
-    # while tmp < (np.shape(train)[0]/np.shape(test)[0]):
+    while tmp<113:
+        for i in range(181):
+            minh=int(train[tmp*181+i][4])
+            if(minh==cur_label):
+                train[tmp*181+i].pop(4)
+                cosin_similarity = cosin.cosin_distance(test[i],train[tmp*181+i])
+                print(cosin_similarity)
+                if distance > cosin_similarity and cosin_similarity>0:
+                    distance = cosin_similarity
+            else:
+                arr_distance.append(distance)
+                cur_label += 1
+                distance = 1000
+        tmp += 1
 
-    #     for i in range(np.shape(test)[0]):
-    #         if(train[tmp+i][4]==cur_label):
-    #             train[tmp+i].pop[4]
-    #             cosin_similarity = cosin.cosin_distance(test[i],train[tmp+i])
-    #             if distance > cosin_similarity:
-    #                 distance = cosin_similarity
-    #         else:
-    #             arr_distance.append(distance)
-    #             cur_label += 1
-    #     tmp += 1
-
-    # res_label = -1
-    # min_distance = 1000000000
-    # print(arr_distance)
-    # print(np.shape(arr_distance)[0])
-    # for i in range(np.shape(arr_distance)[0]):
-    #     if min_distance > arr_distance[i]:
-    #         min_distancen = arr_distance[i]
-    #         res_label = i
-    # print(res_label)
+    res_label = -1
+    min_distance = 100
+    print(arr_distance)
+    for i in range(np.shape(arr_distance)[0]):
+        if min_distance > arr_distance[i]:
+            min_distance = arr_distance[i]
+            res_label = i
+    print(res_label)
 
 predict()

@@ -4,8 +4,8 @@ import glob
 import csv
 import os.path
 
-FRAME_SIZE = 1024
-HOP_LENGTH = 512
+FRAME_SIZE = 2048
+HOP_LENGTH = 1024
 sr=44100
 
 def rmse(signal, frame_size, hop_length):

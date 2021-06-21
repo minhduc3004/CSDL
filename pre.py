@@ -7,8 +7,8 @@ import os.path
 
 labels = {}
 samples = {}
-FRAME_SIZE = 1024
-HOP_LENGTH = 512
+FRAME_SIZE = 2048
+HOP_LENGTH = 1024
 sr=44100
 def get_instrument_name(path):
     return path.split('\\')[1]
